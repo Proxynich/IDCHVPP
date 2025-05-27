@@ -2,6 +2,7 @@
 
 echo "Downloading Required Packages"
 apt-get install cpufrequtils iftop htop git build-essential net-tools ipmitool lshw rsync net-tools traceroute snmpd snmp iptables ipmitool lm-sensors libmnl-dev ethtool traceroute make  -y
+apt remove os-prober -y
 echo "-----------------------------"
 echo ""
 echo ""
