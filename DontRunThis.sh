@@ -15,6 +15,23 @@ mkdir -p /var/log/vpp
 echo "-----------------------------"
 echo ""
 echo ""
+echo ""
+echo ""
+echo "-----------------------------"
+echo "Downloading VPP and Installing VPP"
+mkdir -p ~/src
+cd ~/src
+git clone -b stable/2502 https://gerrit.fd.io/r/vpp
+cd vpp/
+make install-deps
+make install-ext-deps
+make build-release
+make pkg-deb
+dpkg -i build-root/*.deb
+echo "-----------------------------"
+echo ""
+echo ""
+echo ""
 echo "-----------------------------"
 echo "Applying Configuration for HugePages and etc"
 cp ./80-vpp.conf /etc/sysctl.d/86-vpp.conf
@@ -55,4 +72,5 @@ echo ""
 echo "-----------------------------"
 echo "REBOOTING SYSTEM"
 echo "You Will Not Able To Power On This Server Again :D"
+systemctl reboot  
 
