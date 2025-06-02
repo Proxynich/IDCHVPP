@@ -40,7 +40,7 @@ cp ./netns-dataplane.service /usr/lib/systemd/system/netns-dataplane.service
 cp ./ssh-dataplane.service /usr/lib/systemd/system/ssh-dataplane.service
 cp ./dpdk-bind.sh /usr/local/bin/dpdk-bind.sh
 cp ./dpdk-bind.service /etc/systemd/system/dpdk-bind.service
-cp +x /etc/systemd/system/dpdk-bind.service
+chmod +x /etc/systemd/system/dpdk-bind.service
 sysctl -p -f /etc/sysctl.d/80-vpp.conf
 sysctl -p -f /etc/sysctl.d/81-vpp-netlink.conf
 systemctl enable netns-dataplane
